@@ -1,4 +1,5 @@
 @import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:site_package/Configuration/TypoScript/Helper/DynamicContent.typoscript'
 
 page = PAGE
 page {
@@ -45,6 +46,14 @@ page {
         bootstrap = https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js
         bootstrap.external = 1
         website = EXT:site_package/Resources/Public/JavaScript/website.js
+    }
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+            levels = 1
+            includeSpacer = 1
+            as = mainnavigation
+        }
     }
 }
 
